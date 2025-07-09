@@ -79,6 +79,8 @@ namespace API.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+        [HttpGet("id")]
         public async Task<IActionResult> GetById(Guid id)
         {
             if(!ModelState.IsValid)
