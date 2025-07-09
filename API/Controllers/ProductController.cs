@@ -86,14 +86,9 @@ namespace API.Controllers
                 return BadRequest("le model est invalide");
             }
 
-            ApiResponse<ProductFull> response = await _service.GetById(id);
+            ProductFull response = await _service.GetById(id);
 
-            if(!response.Success)
-            {
-                return BadRequest(response.ErrorMessage);
-            }
-
-            return Ok(response.Data);
+            return Ok(response);
         }
         #endregion
 
