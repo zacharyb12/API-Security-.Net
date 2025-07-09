@@ -62,6 +62,7 @@
     <Folder Include="Stored_Procedure\SP_Product" />
     <Folder Include="Stored_Procedure\SP_User" />
     <Folder Include="Function" />
+    <Folder Include="Stored_Procedure\Auth" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Product.sql" />
@@ -73,5 +74,7 @@
     <Build Include="Function\GetPepper.sql" />
     <Build Include="Stored_Procedure\SP_User\SP_User_Update.sql" />
     <Build Include="Stored_Procedure\SP_User\SP_User_Update_Password.sql" />
+    <Build Include="Stored_Procedure\Auth\Login.sql" />
+    <Build Include="Stored_Procedure\Auth\Register.sql" />
   </ItemGroup>
 </Project>

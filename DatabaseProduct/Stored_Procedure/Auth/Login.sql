@@ -1,0 +1,34 @@
+﻿CREATE PROCEDURE [dbo].[Login]
+@Email NVARCHAR(100),
+@Password NVARCHAR(50)
+AS
+
+BEGIN TRY
+	if NOT EXISTS(SELECT 1 FROM [dbo].[Users] WHERE Email = @Email)
+	BEGIN 
+		RETURN -1;
+	END
+
+	DECLARE @Salt UNIQUEIDENTIFIER = (SELECT Salt FROM [dbo].[Users] WHERE Email = @Email);
+	DECLARE @Pepper UNIQUEIDENTIFIER = [dbo].GetPepper();
+
+	DECLARE @PasswordCombined NVARCHAR(255) = @Password + CONVERT(NVARCHAR(50), @Salt) + CONVERT(NVARCHAR(50), @Pepper);
+	DECLARE @PasswordHash VARBINARY(64) = HASHBYTES('SHA2_256', CONVERT(VARBINARY(255), @PasswordCombined));
+
+	DECLARE @PasswordStored VARBINARY(64) = (SELECT Password FROM [dbo].[Users] WHERE Email = @Email);
+
+
+	If @PasswordHash = @PasswordStored
+	BEGIN
+		SELECT Id FROM [dbo].[Users] WHERE Email = @Email;
+	END
+	ELSE
+	BEGIN
+		SELECT CAST('00000000-0000-0000-0000-000000000000' AS UNIQUEIDENTIFIER) AS NewUserId;
+	END
+
+
+END TRY
+BEGIN CATCH
+	SELECT CAST('00000000-0000-0000-0000-000000000000' AS UNIQUEIDENTIFIER) AS NewUserId;
+END CATCH

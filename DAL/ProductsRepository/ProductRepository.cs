@@ -1,7 +1,5 @@
-﻿using Azure;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using Models.ProductModel;
-using Models.Response;
 using System.Data;
 
 namespace DAL.ProductsRepository

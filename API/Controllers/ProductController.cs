@@ -1,8 +1,6 @@
 ﻿using BLL.ProductServices;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models.ProductModel;
-using Models.Response;
 
 namespace API.Controllers
 {
