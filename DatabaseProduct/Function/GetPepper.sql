@@ -1,0 +1,12 @@
+﻿CREATE FUNCTION [dbo].[GetPepper]
+()
+RETURNS UNIQUEIDENTIFIER
+AS
+BEGIN
+	DECLARE @Pepper UNIQUEIDENTIFIER;
+
+	SET @Pepper = 'a3f28d7e-9b01-4a0c-8f1a-df2d6f2d1d67'
+
+	RETURN @Pepper;
+	
+END

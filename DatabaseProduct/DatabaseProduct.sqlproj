@@ -59,11 +59,19 @@
     <Folder Include="Tables" />
     <Folder Include="Stored_Procedure" />
     <Folder Include="Views" />
+    <Folder Include="Stored_Procedure\SP_Product" />
+    <Folder Include="Stored_Procedure\SP_User" />
+    <Folder Include="Function" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Product.sql" />
-    <Build Include="Stored_Procedure\SP_Product_Add.sql" />
-    <Build Include="Stored_Procedure\SP_Product_Update.sql" />
     <Build Include="Views\ProductMin.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Stored_Procedure\SP_Product\SP_Product_Add.sql" />
+    <Build Include="Stored_Procedure\SP_Product\SP_Product_Update.sql" />
+    <Build Include="Stored_Procedure\SP_User\SP_User_Add.sql" />
+    <Build Include="Function\GetPepper.sql" />
+    <Build Include="Stored_Procedure\SP_User\SP_User_Update.sql" />
+    <Build Include="Stored_Procedure\SP_User\SP_User_Update_Password.sql" />
   </ItemGroup>
 </Project>

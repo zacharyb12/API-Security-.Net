@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using API.Exceptions;
+using System.Net;
 using System.Text.Json;
 
 namespace API.Middleware
@@ -36,6 +37,18 @@ namespace API.Middleware
                 {
                     case UnauthorizedAccessException: 
                         context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                        break;
+
+                    case NotFoundException:
+                        context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+                        break;
+
+                    case BadRequestException:
+                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        break;
+
+                    case ConflictException:
+                        context.Response.StatusCode = (int)HttpStatusCode.Conflict;
                         break;
 
                     default:
